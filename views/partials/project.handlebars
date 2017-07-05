@@ -1,21 +1,9 @@
-{{#if highlight}}
-  {{! for the handful of glitch projects to highlight}}
-  <div class="project-highlight">
-    <div class="thumb">
-      <a href="https://{{project_name}}.glitch.me/"><img src="https://cdn.glitch.com/project-avatar/{{project_id}}.png" /></a>
-    </div>
-    <div class="info">
-      <h2><a href="https://{{project_name}}.glitch.me/">{{project_name}}</a> <a class="action btn" href="https://glitch.com/edit/#!/{{project_name}}">🔍</a> <a class="action btn" href="https://glitch.com/edit/#!/remix/{{project_name}}">✏️</a></h2>
-      <p>{{description}}</p>
-    </div>
+{{! for the other projects, links but no details }}
+<div class="project">
+  <div class="thumb">
+    <a href="https://{{project_name}}.glitch.me/"><img src="https://cdn.glitch.com/project-avatar/{{project_id}}.png" /></a>
   </div>
-{{else}}
-  {{! for the other projects, links but no details }}
-  <div class="project">
-    <div class="thumb">
-      <a href="https://{{project_name}}.glitch.me/"><img src="https://cdn.glitch.com/project-avatar/{{project_id}}.png" /></a>
-    </div>
-  </div>
-{{/if}}
+</div>
+
 
 
