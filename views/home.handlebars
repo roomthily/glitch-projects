@@ -1,0 +1,6 @@
+<div class="content">
+  {{#each projects}}
+    {{! load the partial template for the project }}
+    {{> project project_name=this.domain project_description=this.decription project_id=this.id}}
+  {{/each}}
+</div>
