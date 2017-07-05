@@ -1,0 +1,446 @@
+/* styles */
+/* called by your view template */
+
+/* You might want to try something fancier: */
+/* less: http://lesscss.org/ */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet');
+
+* {
+  box-sizing: border-box;
+  position:absolute;
+  margin:0;
+  padding:0;
+}
+*:before, *:after {
+  content: '';
+  position: absolute;
+}
+
+body {
+  width:100vw;
+  height: 100vh;
+  overflow: hidden;
+  
+  font-family: Noto Sans, sans-serif;
+  font-weight: 300;
+  font-size: .9em;
+  letter-spacing:0.1em;
+}
+
+/* the overlay for text/links */
+.content {
+  height: 75vh;
+  width: 100vw;
+  z-index: 100;
+  margin: 1em;
+}
+.project {
+  padding: 1.2em;
+  background-color: rgba(255, 240, 198, 0.2);
+  border-radius: 50px;
+  width: 10em;
+  height: auto;
+  color: rgba(255, 255, 255, 0.7);
+}
+.project:after, .project:before {
+  background-color: rgba(255, 240, 198, 0.2);
+}
+.thumb {
+  
+} 
+.thumb a {}
+.thumb img {
+  max-width: 2.4em;
+  border-radius: 20%;
+}
+.info {
+  
+}
+.info p {
+  
+}
+imfo p.actions {
+  
+}
+
+.btn {
+  
+}
+
+/* 
+
+UPDATE THE IND DIVs 
+for the spacing based on the number 
+of projects
+
+it's not ideal
+*/
+
+/* background css */
+.space {
+  width: 100vw;
+  height: 45vh;
+  top:0;
+  left:0;
+  z-index:1;
+  background-color: #013D82;
+}
+/* the star pattern */
+.space pre {
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  font-family:monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.1);
+  margin:auto;
+  letter-spacing: .5em;
+  line-height: 0.75em;
+  z-index:2;
+}
+
+.sky {
+  width: 100vw;
+  height: 30vh;
+  top: 45vh;
+  left: 0;
+  z-index: 1;
+  
+  background: #F5F9FE;
+  background: -webkit-linear-gradient(legacy-direction(to top), #F5F9FE 0%, #C6D9F0 15%, #9CBBE2 15%, #9CBBE2 29%, #75A0D4 29%, #75A0D4 43%, #5287C6 43%, #5287C6 57%, #3370B8 57%, #3370B8 71%, #185BAA 71%, #185BAA 85%, #01499C 85%, #01499C 100%);
+  background: linear-gradient(to top, #F5F9FE 0%, #C6D9F0 15%, #9CBBE2 15%, #9CBBE2 29%, #75A0D4 29%, #75A0D4 43%, #5287C6 43%, #5287C6 57%, #3370B8 57%, #3370B8 71%, #185BAA 71%, #185BAA 85%, #01499C 85%, #01499C 100%);
+}
+
+.sun {
+  width: 220px;
+  height: 220px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: -70px;
+  background-color: #FFF0C6;
+  border-radius: 50%;
+}
+.sun-glow-1 {
+  background-color: rgba(255, 240, 198, 0.3);
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  top: -40px;
+  left: -40px;
+  z-index: 2;
+}
+.sun-glow-2 {
+  background-color: rgba(255, 240, 198, 0.2);
+  height: 380px;
+  width: 380px;
+  border-radius: 50%;
+  top: -80px;
+  left: -80px;
+  z-index: 1;
+}
+.sun-glow-3 {
+  background-color: rgba(255, 240, 198, 0.1);
+  height: 460px;
+  width: 460px;
+  border-radius: 50%;
+  top: -120px;
+  left: -120px;
+  z-index: -1;
+}
+.main-sun-shimmer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  z-index: 2;
+}
+.main-sun-shimmer > * {
+  border-radius: 50px;
+  height: 5%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(1) {
+  background-color: #F6FAFD;
+  width: 35%;
+  bottom: -1%;
+  height: 6%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(2) {
+  background-color: #F6FAFD;
+  width: 10%;
+  bottom: 5%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(3) {
+  background-color: #FFF0C6;
+  width: 30%;
+  bottom: 5%;
+  left: 30%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(4) {
+  background-color: #FFF0C6;
+  width: 10%;
+  bottom: 5%;
+  left: -13%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(5) {
+  background-color: #F6FAFD;
+  width: 40%;
+  bottom: 10%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(6) {
+  background-color: #F6FAFD;
+  width: 15%;
+  bottom: 15%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(7) {
+  background-color: #FFF0C6;
+  width: 5%;
+  bottom: 15%;
+  z-index: 2;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(8) {
+  background-color: #FFF0C6;
+  width: 10%;
+  bottom: 15%;
+  left: -20%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(9) {
+  background-color: #FFF0C6;
+  width: 10%;
+  bottom: 15%;
+  left: 20%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(10) {
+  background-color: #F6FAFD;
+  width: 20%;
+  bottom: 20%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(11) {
+  background-color: #F6FAFD;
+  width: 7%;
+  bottom: 20%;
+  left: 30%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(12) {
+  background-color: #F6FAFD;
+  width: 7%;
+  bottom: 24%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(13) {
+  background-color: #FFF0C6;
+  width: 7%;
+  bottom: 25%;
+  height: 4%;
+  left: -10%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(14) {
+  background-color: #FFF0C6;
+  width: 7%;
+  bottom: 25%;
+  height: 4%;
+  left: 10%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(15) {
+  background-color: #F6FAFD;
+  width: 9%;
+  bottom: 29%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(16) {
+  background-color: #F6FAFD;
+  width: 7%;
+  bottom: 34%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(17) {
+  background-color: #FFF0C6;
+  width: 7%;
+  bottom: 34%;
+  left: -9%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(18) {
+  background-color: #FFF0C6;
+  width: 7%;
+  bottom: 34%;
+  left: 9%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(19) {
+  background-color: #F6FAFD;
+  width: 7%;
+  bottom: 39%;
+}
+.main-sun-shimmer .shimmer-shape:nth-of-type(20) {
+  background-color: #F6FAFD;
+  width: 1%;
+  bottom: 49%;
+  left: -3%;
+}
+
+/* the earth */
+.earth {
+  width: 100vw;
+  background-color: #DACFAE;
+  height: 25vh;
+  bottom: 0;
+  z-index: 2;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #dacfae 0%, rgba(23, 220, 9, 0.5) 100%);
+}
+.earth-sun-shimmer {
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  z-index: 2;
+}
+.earth-sun-shimmer > * {
+  border-radius: 50px;
+  height: 5%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(1) {
+  background-color: #F6FAFD;
+  width: 35%;
+  left: -25%;
+  display: none;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(2) {
+  background-color: #F6FAFD;
+  width: 15%;
+  top: 0;
+  height: 10%;
+  left: -2%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(3) {
+  background-color: #DACFAE;
+  width: 30%;
+  top: 0;
+  left: 24%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(4) {
+  background-color: #DACFAE;
+  width: 10%;
+  top: 0;
+  left: -18%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(5) {
+  background-color: #F6FAFD;
+  width: 32%;
+  top: 10%;
+  left: 14%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(6) {
+  background-color: #F6FAFD;
+  width: 15%;
+  top: 20%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(7) {
+  background-color: #DACFAE;
+  width: 4%;
+  top: 20%;
+  z-index: 2;
+  left: 2%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(8) {
+  background-color: #DACFAE;
+  width: 10%;
+  top: 20%;
+  left: -20%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(9) {
+  background-color: #DACFAE;
+  width: 10%;
+  top: 20%;
+  left: 20%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(10) {
+  background-color: #F6FAFD;
+  width: 18%;
+  top: 30%;
+  left: 4%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(11) {
+  background-color: #F6FAFD;
+  width: 2%;
+  top: 30%;
+  left: 25%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(12) {
+  background-color: #F6FAFD;
+  width: 7%;
+  top: 39%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(13) {
+  background-color: #DACFAE;
+  width: 7%;
+  top: 40%;
+  height: 9%;
+  left: -10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(14) {
+  background-color: #DACFAE;
+  width: 7%;
+  top: 40%;
+  height: 9%;
+  left: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(15) {
+  background-color: #F6FAFD;
+  width: 9%;
+  top: 48%;
+  height: 11%;
+  left: 3.5%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(16) {
+  background-color: #F6FAFD;
+  width: 7%;
+  top: 59%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(17) {
+  background-color: #BBDA9B;
+  width: 7%;
+  top: 59%;
+  left: -9%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(18) {
+  background-color: #BBDA9B;
+  width: 7%;
+  top: 59%;
+  left: 7%;
+  height: 10%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(19) {
+  background-color: #F6FAFD;
+  width: 7%;
+  top: 69%;
+  height: 10%;
+  left: -2.5%;
+}
+.earth-sun-shimmer .earth-shimmer:nth-of-type(20) {
+  background-color: #F6FAFD;
+  width: 1%;
+  top: 85%;
+  height: 6%;
+  left: 2%;
+}
+
