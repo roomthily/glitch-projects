@@ -8,7 +8,8 @@ var Client = require('node-rest-client').Client,
     user = {
       name: process.env.NAME,
       authorization: process.env.AUTHORIZATION,
-      exclude_projects: process.env.EXCLUDE.split(',')
+      exclude_projects: process.env.EXCLUDE.split(','),
+      highlighted_projects: process.env.HIGHLIGHT.split(',')
     };
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -37,11 +38,20 @@ app.get("/", (request, response) => {
   // get the projects data from glitch
   client.get(url, args, (data, res) => {
     // strip out any excluded projects
-    console.log(data);
+    
+    // console.log(data);
+    // console.log(data.projects.length);
+    
     var projects = data.projects.filter(prj => {
       // not currently looking for an invite token
       //  ie. data.projects[project].inviteToken
-      return !(user.exclude_projects.includes(prj.domain));
+      // but also auto-excluding any private projects
+      return !(user.exclude_projects.includes(prj.domain)) && prj.private == false;
+    }).map(p => {
+      if (user.highlighted_projects.includes(p.name)) {
+        p.highlight = true;
+      }
+      return p;
     });
     
     // render the handlebars templates

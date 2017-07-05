@@ -1,6 +1,10 @@
 $(function() {
-  console.log('hello world :o');
-
+  
+  
+  /* 
+    based on https://github.com/mouse-reeve/placevalue_ascii/blob/master/placevalue_ascii.py
+    to generate the star pattern onload
+  */
   var f = function(x, y) {return Math.sqrt(Math.pow(x, 3) * Math.pow(y, 3)) / 5}
   var f2 = function(x, y) { return Math.pow(x, 2) * Math.pow(y, 2); }
 
@@ -30,12 +34,11 @@ $(function() {
   var placevalue = Math.ceil(Math.random() * 15 + 4);
   
   var pattern = patterner(f, height, width, placevalue, offset_y);
-  console.log(pattern.length);
   
   var el = document.createElement('pre');
   el.innerHTML = pattern;
-  // $(".space pre").innerHTML = pattern;
   
   $('.space').append(el);
+  /* end star pattern */
 
 });
