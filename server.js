@@ -42,33 +42,48 @@ app.get("/", (request, response) => {
     // console.log(data);
     // console.log(data.projects.length);
     
+    // var projects = data.projects.filter(prj => {
+    //   // not currently looking for an invite token
+    //   //  ie. data.projects[project].inviteToken
+    //   // but also auto-excluding any private projects
+    //   return !(user.exclude_projects.includes(prj.domain)) && prj.private == false;
+    // }).map(p => {
+    //   if (user.highlighted_projects.includes(p.name)) {
+    //     p.highlight = true;
+    //   }
+    //   return p;
+    // });
+    
     var projects = data.projects.filter(prj => {
       // not currently looking for an invite token
       //  ie. data.projects[project].inviteToken
       // but also auto-excluding any private projects
       return !(user.exclude_projects.includes(prj.domain)) && prj.private == false;
-    }).map(p => {
-      if (user.highlighted_projects.includes(p.name)) {
-        p.highlight = true;
-      }
-      return p;
     });
+    
+    var mapped_projects = {
+      highlights: projects.filter(p => {
+        return user.highlighted_projects.includes(p.name);
+      }),
+      projects: projects.filter(p => {
+        return !user.highlighted_projects.includes(p.name);
+      })
+    };
+    
+    console.log(mapped_projects.highlights.length, mapped_projects.projects.length);
     
     // render the handlebars templates
     response.render('home', {
       name: user.name,
       avatar: data.user.avatarUrl,
-      projects: projects,
+      projects: mapped_projects,
       this_project: process.env.PROJECT_NAME
     });
   }).on('error', (err) => {
     console.log(err);
     response.send('error!');
   });
-  
-  // response.sendFile(__dirname + '/views/index.html');
 });
-
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
