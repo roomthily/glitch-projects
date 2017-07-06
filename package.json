@@ -1,7 +1,7 @@
 {
-  "name": "my-glitch-app",
+  "name": "false-production",
   "version": "0.0.1",
-  "description": "What am I about?",
+  "description": "landing page for public glitch projects over the late afternoon sun glimmer",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -12,13 +12,14 @@
     "express-handlebars": "^3.0.0",
     "express-hbs": "^1.0.4",
     "request": "^2.81.0",
-    "node-rest-client": "^3.1.0"
+    "node-rest-client": "^3.1.0",
+    "random-js": "^1.0.8"
   },
   "engines": {
     "node": "8.1.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
+    "url": "https://glitch.com/edit/#!/false-production"
   },
   "license": "MIT",
   "keywords": [
