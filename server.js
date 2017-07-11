@@ -6,6 +6,7 @@ var Client = require('node-rest-client').Client,
     exphbs = require('express-handlebars'),
     bodyparser = require('body-parser'),
     random = require('random-js'),
+    maths = require('mathjs'),
     user = {
       name: process.env.NAME,
       authorization: process.env.AUTHORIZATION,
@@ -23,16 +24,12 @@ app.use(bodyparser.urlencoded({
 app.use(express.static('public'));
 
 var engine = random.engines.mt19937().autoSeed();
-var bottom_distribution = random.integer(5, 95);
+var bottom_distribution = random.integer(10, 95);
 var left_distribution = random.integer(5, 95);
 
 // via https://glitch.com/edit/#!/stefan
 app.get("/", (request, response) => {
   var url = "https://api.glitch.com/boot";
-  
-  // TODO: add an override for the private flags
-  //       so that it's not just a public display
-  //       page
   
   var args = {
     parameters: { "authorization": user.authorization },
@@ -67,12 +64,27 @@ app.get("/", (request, response) => {
     // add the position info for the projects
     // in the grass so that they're like little
     // svg flowers
+    var coords = [[90, 5], [95, 5]];
     mapped_projects.projects = mapped_projects.projects.map(p => {
       // set bottom, left in %, bounded by the lower grass
       // and avoiding the reflection and the footer
       var bottom = bottom_distribution(engine);
       var left = left_distribution(engine);
       
+      var threshold = 15;
+      var hits = coords.filter(pair => {
+        return maths.distance(pair, [left, bottom]) < threshold;
+      });
+      while (hits.length > 1) {
+        left = left_distribution(engine);
+        bottom = bottom_distribution(engine);
+        
+        hits = coords.filter(pair => {
+          return maths.distance(pair, [left, bottom]) < threshold;
+        });
+      }
+
+      coords.push([left, bottom]);
       p.position = `bottom:${bottom}%;left:${left}%;`;
       return p;
     });
