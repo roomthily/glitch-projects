@@ -20,7 +20,6 @@ body {
   font-size: .9em;
   letter-spacing:0.1em;
   
-  /* TODO: add a min-width/media queries for smaller viewport */
 }
 
 .content {
@@ -30,6 +29,94 @@ body {
   height: 100vh;
   z-index: 20;
 }
+
+/* @media only screen
+  and (max-width: 768px) {
+    .content {
+      display:none;
+    }   
+} */
+
+/* @media only screen
+  and (max-width: 480px) {
+    
+} */
+
+@media only screen
+  and (max-width: 768px) {
+    /* convert from all the content things
+       to a title header cloud and a longer grassy list of things
+       for readability and clicking
+    
+       so the grass gets taller (it's summer)
+       
+    */
+    
+    .space {
+      top: 0;
+      height: 20vh;
+    }
+    .sky {
+      top: 20vh;
+      height: 20vh;
+    }
+    .earth {
+      top: 40vh;
+      height: 100%;
+    }
+}
+
+@media only screen
+  and (min-width: 768px) {
+    /* convert from all the content things
+       to a title header cloud and a longer grassy list of things
+       for readability and clicking
+    
+       so the grass gets taller (it's summer)
+       
+    */
+    
+    .space {
+      top: 0;
+      height: 60vh;
+    }
+    .sky {
+      height: 30vh;
+      bottom: 40vh;
+      left: 0;
+    }
+    .earth {
+      top: 60vh;
+      height: 40vh;
+    }
+}
+
+@media only screen
+  and (max-width: 768px) {
+        /* yeah what a pita */
+    
+    .content {
+      top: 40vh;
+    }
+    
+    .highlights, .projects {
+/*       position: relative; */
+    }
+    
+    .highlights {
+      top:0;
+    }
+    
+    .projects {
+      position:relative;
+    }
+    
+    footer {
+      
+    }
+    
+}
+
 .content .highlights {
   width: 100vw;
   height: 60vh;
@@ -62,6 +149,14 @@ body {
   padding:1em 1.6em;
   margin: 1em;
 }
+@media only screen
+  and (max-width: 768px) {
+    .content .highlights .project {
+      background-color: transparent;
+      position:relative;
+    }
+}
+
 .content .highlights .thumb,
 .content .highlights .info,
 .thumb a,
@@ -160,6 +255,12 @@ body {
 }
 
 
+
+
+
+
+
+
 footer {
   bottom: 2.5em;
   right: 11.5em;
@@ -167,9 +268,7 @@ footer {
 }
 
 .space {
-  top: 0;
   width: 100vw;
-  height: 60vh;
   background-color: #013D82;
 }
 .space pre {
@@ -188,9 +287,6 @@ footer {
 
 .sky {
   width: 100vw;
-  height: 30vh;
-  bottom: 40vh;
-  left: 0;
   background: #F5F9FE;
   background: -webkit-linear-gradient(legacy-direction(to top), #F5F9FE 0%, #C6D9F0 15%, #9CBBE2 15%, #9CBBE2 29%, #75A0D4 29%, #75A0D4 43%, #5287C6 43%, #5287C6 57%, #3370B8 57%, #3370B8 71%, #185BAA 71%, #185BAA 85%, #01499C 85%, #01499C 100%);
   background: linear-gradient(to top, #F5F9FE 0%, #C6D9F0 15%, #9CBBE2 15%, #9CBBE2 29%, #75A0D4 29%, #75A0D4 43%, #5287C6 43%, #5287C6 57%, #3370B8 57%, #3370B8 71%, #185BAA 71%, #185BAA 85%, #01499C 85%, #01499C 100%);
@@ -364,9 +460,7 @@ footer {
 }
 
 .earth {
-  top: 60vh;
   width: 100vw;
-  height: 40vh;
   background-color: #DACFAE;
   background: linear-gradient(to bottom, #dacfae 0%, rgba(23, 220, 9, 0.5) 100%);
   z-index:2;
@@ -379,148 +473,16 @@ footer {
   height: 100%;
   z-index: 2;
 }
-.earth-sun-shimmer > * {
-  border-radius: 50px;
-  height: 5%;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+
+.earth-sun-shimmer {
+  background: url('https://cdn.glitch.com/34e9a620-82a1-476d-af6d-f08febe3ea6d%2Fshimmer.svg?1500341348794') top left no-repeat;
+  background-position:left 55% top -3px;
+  background-size: 50%;
 }
-.earth-sun-shimmer .earth-shimmer:nth-of-type(1) {
-  background-color: #F6FAFD;
-  width: 35%;
-  left: -25%;
-  display: none;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(2) {
-  background-color: #F6FAFD;
-  width: 15%;
-  top: 0;
-  height: 10%;
-  left: -2%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(3) {
-  background-color: #DACFAE;
-  width: 30%;
-  top: 0;
-  left: 24%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(4) {
-  background-color: #DACFAE;
-  width: 10%;
-  top: 0;
-  left: -18%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(5) {
-  background-color: #F6FAFD;
-  width: 32%;
-  top: 10%;
-  left: 14%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(6) {
-  background-color: #F6FAFD;
-  width: 15%;
-  top: 20%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(7) {
-  background-color: #DACFAE;
-  width: 4%;
-  top: 20%;
-  z-index: 2;
-  left: 2%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(8) {
-  background-color: #DACFAE;
-  width: 10%;
-  top: 20%;
-  left: -18%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(9) {
-  background-color: #DACFAE;
-  width: 10%;
-  top: 20%;
-  left: 20%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(10) {
-  background-color: #F6FAFD;
-  width: 18%;
-  top: 30%;
-  left: 4%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(11) {
-  background-color: #F6FAFD;
-  width: 2%;
-  top: 30%;
-  left: 25%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(12) {
-  background-color: #F6FAFD;
-  width: 7%;
-  top: 39%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(13) {
-  background-color: #DACFAE;
-  width: 7%;
-  top: 40%;
-  height: 9%;
-  left: -10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(14) {
-  background-color: #DACFAE;
-  width: 7%;
-  top: 40%;
-  height: 9%;
-  left: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(15) {
-  background-color: #F6FAFD;
-  width: 11%;
-  top: 48%;
-  height: 11%;
-  left: 3.5%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(16) {
-  background-color: #F6FAFD;
-  width: 7%;
-  top: 59%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(17) {
-  background-color: #BBDA9B;
-  width: 7%;
-  top: 59%;
-  left: -9%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(18) {
-  background-color: #BBDA9B;
-  width: 7%;
-  top: 59%;
-  left: 7%;
-  height: 10%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(19) {
-  background-color: #F6FAFD;
-  width: 7%;
-  top: 69%;
-  height: 10%;
-  left: -2.5%;
-}
-.earth-sun-shimmer .earth-shimmer:nth-of-type(20) {
-  background-color: #F6FAFD;
-  width: 1%;
-  top: 85%;
-  height: 6%;
-  left: 2%;
+@media only screen
+  and (max-width: 768px) {
+    .earth-sun-shimmer {
+      background-position: left 60% top -2px;
+      background-size: 50%;
+    }   
 }
